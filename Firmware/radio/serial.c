@@ -537,12 +537,14 @@ serial_read_space(void)
 	return space;
 }
 
-void
-putchar(char c) __reentrant
+int 
+putchar(int c) __reentrant
 {
 	if (c == '\n')
 		_serial_write('\r');
 	_serial_write(c);
+	
+	return 0;
 }
 
 
@@ -565,7 +567,7 @@ static const __code struct {
 	{38,  0xb0, 0x01}, // 38400
 	{57,  0x2b, 0x08}, // 57600 - default
 	{115, 0x96, 0x08}, // 115200
-	{230, 0xcb, 0x08}, // 230400
+	{255, 0xf3, 0x08}, // 921600
 };
 
 //

@@ -34,7 +34,7 @@ PRODUCT_DIR	:=	$(patsubst %/,%,$(dir $(lastword $(MAKEFILE_LIST))))
 PRODUCT_INSTALL	 =	$(foreach frequency,$(FREQUENCIES), $(OBJROOT)/$(PRODUCT)~$(frequency).hex)
 
 CFLAGS		+=	-DBL_VERSION=$(VERSION)
-CFLAGS		+=	--model-small --no-xinit-opt --opt-code-size --Werror
+CFLAGS		+=	--model-small --no-xinit-opt --opt-code-size #--Werror
 #CFLAGS		+=	--fverbose-asm
 
 # Set limits for the low (CSEG) and high (HIGHCSEG) code segments.
